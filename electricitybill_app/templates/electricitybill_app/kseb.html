@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill</title>
+    <style>
+        #parent {
+            position: relative;
+            height: fit-content;
+            width: fit-content;
+            left: 540px;
+
+        }
+        #parent1 {
+            position: relative;
+            height: fit-content;
+            width: fit-content;
+            left: 490px;
+            top: 40px;
+
+        }
+    </style>
+     
+</head>
+
+<body>
+    <div id="parent">
+    <h3>ELECTRICITY BILL PAYMENT</h3>
+</div>
+<div id="parent1">
+    <div id="div1" >
+        <label for="">Name :</label>
+        <input type="text" id="name">
+        <br><br>
+        <label for="">Consumer id :</label>
+        <input type="text" id="consumer_id" placeholder="1234"> <input type="button" id="submit1" onclick="getaction()" value="Continue" >
+        <span id="demo"></span>
+    </div>
+    <br><br>
+    <div id="div2" style="display: none;">
+        <label for="">Units used</label>
+        <input type="text" id="unit"><input type="button" id="submit2" value="Submit" onclick="calc()">
+        <br><br>
+        <span id="name_display"></span>
+        <span id="display"></span>
+    </div>
+</div>    
+    
+    
+
+
+
+
+    <script>
+        function getaction()
+        {
+        
+        var cid=document.getElementById ('consumer_id').value;
+        
+
+        var a=1234;
+         
+        if(cid==a)
+        {
+         
+        document.getElementById ('div2').style.display = 'block'; 
+         
+        }
+        else
+        {
+        document.getElementById ("demo").innerHTML = "Invalid pin";
+        }
+        }
+        
+        function calc(){
+            var u=Number(document.getElementById("unit").value)
+            
+             
+            var bill=0.0
+
+            if(u>0 && u<=100)
+            {
+                bill=(u*5)
+                document.getElementById("display").innerHTML = "Bill Amount : "+bill
+                
+            }
+            else
+            if (u>100 && u<=150){
+                bill=(u*10)
+                document.getElementById("display").innerHTML = "Bill Amount : "+bill
+            }
+            else
+            if (u>150 && u<=200){
+                bill=(u*15)
+                document.getElementById("display").innerHTML = "Bill Amount : "+bill
+
+            }
+            else
+            if (u>200){
+                bill=(u*20)
+                document.getElementById("display").innerHTML = "Bill Amount : "+bill
+            }
+            else {
+                document.getElementById("display").innerHTML =  "Error"
+            }
+
+            
+        }
+         
+
+    </script>
+</body>
+
+</html>
